@@ -1,9 +1,11 @@
 
+
+
 function filtrar(categoria, btn) {
   document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 
-  const grid = document.querySelector('[id$="-grid"]');
+  const grid = document.getElementById('productos-grid');
   if (!grid) return;
 
   grid.querySelectorAll('.product-card').forEach(card => {
@@ -20,7 +22,7 @@ function cambiarVista(tipo, icon) {
   document.querySelectorAll('.grid-icon').forEach(i => i.classList.remove('active-icon'));
   icon.classList.add('active-icon');
 
-  const grid = document.querySelector('[id$="-grid"]');
+  const grid = document.getElementById('productos-grid');
   if (!grid) return;
 
   grid.querySelectorAll('.product-card').forEach(card => {
