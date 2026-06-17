@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fruity Glow - Contáctanos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../CSS/style.css" rel="stylesheet" />
+  <script src="../JS/main.js"></script>
+  
+</head>
+
+<body>
+
+
+  <div class="header-bar d-flex justify-content-between align-items-center">
+    <a class="logo kavoon-regular" href="../index.html">Fruity Glow.</a>
+    <div class="icons d-flex gap-3">
+      <a href="login.html"><i class="bi bi-person"></i></a>
+      <a href="carrito.html"><i class="bi bi-bag"></i></a>
+    </div>
+  </div>
+  
+
+
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="menu">
+        <ul class="navbar-nav gap-4">
+          <li class="nav-item"><a class="nav-link" href="../index.html">INICIO</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeria.html">GALERIA</a></li>
+          <li class="nav-item"><a class="nav-link" href="ofertas.html">OFERTAS</a></li>
+          <li class="nav-item"><a class="nav-link" href="ProductosParaEventos.html">PRODUCTOS PARA EVENTOS</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contactanos.html">CONTACTANOS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container">
+
+  
+    <h1 class="galeria-titulo">CONTACTANOS</h1>
+
+
+    <p class="eventos-descripcion">
+      Si quieres saber más sobre nuestra marca, productos corporativos o información general
+      llena el siguiente formulario.
+    </p>
+
+
+    <div class="contacto-form">
+
+   
+      <div class="campo-grupo">
+        <label class="campo-label">NOMBRE*</label>
+        <input type="text" class="campo-input" id="nombre" placeholder="" />
+        <span class="campo-error" id="error-nombre">Este campo es obligatorio</span>
+      </div>
+
+
+      <div class="campo-grupo">
+        <label class="campo-label">APELLIDO*</label>
+        <input type="text" class="campo-input" id="apellido" placeholder="" />
+        <span class="campo-error" id="error-apellido">Este campo es obligatorio</span>
+      </div>
+
+  
+      <div class="campo-grupo">
+        <label class="campo-label">CORREO ELECTRONICO*</label>
+        <input type="email" class="campo-input" id="correo" placeholder="" />
+        <span class="campo-error" id="error-correo">Ingresa un correo válido</span>
+      </div>
+
+
+      <div class="campo-grupo">
+        <label class="campo-label">TELEFONO MOVIL*</label>
+        <div class="telefono-wrapper">
+          <div class="telefono-prefijo">
+            <span>🇨🇴</span>
+            <span>+ 57</span>
+          </div>
+          <input type="tel" class="campo-input telefono-input" id="telefono" placeholder="" />
+        </div>
+        <span class="campo-error" id="error-telefono">Ingresa un número válido</span>
+      </div>
+
+  
+      <div class="campo-grupo">
+        <label class="campo-label">TIPO DE EVENTO</label>
+        <select class="campo-input" id="evento">
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="boda">Boda</option>
+          <option value="graduacion">Graduación</option>
+          <option value="15anos">15 Años</option>
+          <option value="corporativo">Evento Corporativo</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+
+   
+      <div class="campo-grupo">
+        <label class="campo-label">COMENTARIOS</label>
+        <textarea class="campo-input campo-textarea" id="comentarios" placeholder=""></textarea>
+      </div>
+
+
+      <div class="campo-grupo">
+        <button class="btn-contactanos" onclick="enviarFormulario()">ENVIAR</button>
+      </div>
+
+   
+      <div class="mensaje-exito" id="mensaje-exito">
+        <i class="bi bi-check-circle"></i> ¡Mensaje enviado! Nos pondremos en contacto contigo pronto.
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function enviarFormulario() {
+      let valido = true;
+
+   
+      document.querySelectorAll('.campo-error').forEach(e => e.style.display = 'none');
+      document.querySelectorAll('.campo-input').forEach(i => i.classList.remove('input-error'));
+
+   
+      const nombre = document.getElementById('nombre');
+      if (!nombre.value.trim()) {
+        document.getElementById('error-nombre').style.display = 'block';
+        nombre.classList.add('input-error');
+        valido = false;
+      }
+
+  
+      const apellido = document.getElementById('apellido');
+      if (!apellido.value.trim()) {
+        document.getElementById('error-apellido').style.display = 'block';
+        apellido.classList.add('input-error');
+        valido = false;
+      }
+
+
+      const correo = document.getElementById('correo');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(correo.value.trim())) {
+        document.getElementById('error-correo').style.display = 'block';
+        correo.classList.add('input-error');
+        valido = false;
+      }
+
+  
+      const telefono = document.getElementById('telefono');
+      if (!telefono.value.trim() || telefono.value.trim().length < 7) {
+        document.getElementById('error-telefono').style.display = 'block';
+        telefono.classList.add('input-error');
+        valido = false;
+      }
+
+   
+      if (valido) {
+        document.getElementById('mensaje-exito').style.display = 'block';
+  
+        document.getElementById('nombre').value = '';
+        document.getElementById('apellido').value = '';
+        document.getElementById('correo').value = '';
+        document.getElementById('telefono').value = '';
+        document.getElementById('evento').value = '';
+        document.getElementById('comentarios').value = '';
+      }
+    }
+  </script>
+
+</body>
+</html>
