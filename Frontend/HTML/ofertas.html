@@ -113,6 +113,19 @@
 
   </div>
 
+
+  <div class="producto-modal-overlay" id="productoModal">
+    <div class="producto-modal-content">
+      <span class="producto-modal-cerrar" onclick="cerrarModal()">&times;</span>
+      <img id="modalImg" src="" alt="" />
+      <h3 id="modalPrecio"></h3>
+      <h3 id="modalDescuento" style="color: red"></h3>
+      <p id="modalNombre"></p>
+      <a href="../HTML/carrito.html" class="btn-ofertas">agregar al carrito</a>
+    </div>
+  </div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
@@ -146,6 +159,47 @@
         });
       }
     }
+
+
+    function abrirModal(card) {
+      const img = card.querySelector('img').src;
+      const alt = card.querySelector('img').alt;
+      const precios = card.querySelectorAll('h5');
+      const precio = precios[0] ? precios[0].innerText : '';
+      const descuento = precios[1] ? precios[1].innerText : '';
+      const nombre = card.querySelector('p').innerText;
+
+      document.getElementById('modalImg').src = img;
+      document.getElementById('modalImg').alt = alt;
+      document.getElementById('modalPrecio').innerText = precio;
+      document.getElementById('modalDescuento').innerText = descuento;
+      document.getElementById('modalNombre').innerText = nombre;
+
+      document.getElementById('productoModal').classList.add('activo');
+    }
+
+    function cerrarModal() {
+      document.getElementById('productoModal').classList.remove('activo');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('#ofertas-grid .product-card').forEach(card => {
+        card.addEventListener('click', () => abrirModal(card));
+      });
+
+      document.getElementById('productoModal').addEventListener('click', (e) => {
+        if (e.target.id === 'productoModal') {
+          cerrarModal();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          cerrarModal();
+        }
+      });
+    });
+
   </script>
 
 </body>
