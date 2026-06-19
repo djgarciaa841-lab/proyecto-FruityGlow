@@ -182,3 +182,30 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// GALERIA 
+document.querySelectorAll('#galeria-grid .product-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const img = card.querySelector('img').src;
+    const alt = card.querySelector('img').alt;
+    const precio = card.querySelector('h5').innerText;
+    const nombre = card.querySelector('p').innerText;
+
+    document.getElementById('modalImg').src = img;
+    document.getElementById('modalImg').alt = alt;
+    document.getElementById('modalPrecio').innerText = precio;
+    document.getElementById('modalNombre').innerText = nombre;
+
+    document.getElementById('productoModal').classList.add('activo');
+  });
+});
+
+function cerrarModal() {
+  document.getElementById('productoModal').classList.remove('activo');
+}
+
+// Cerrar al hacer clic fuera del contenido
+document.getElementById('productoModal').addEventListener('click', (e) => {
+  if (e.target.id === 'productoModal') {
+    cerrarModal();
+  }
+});
