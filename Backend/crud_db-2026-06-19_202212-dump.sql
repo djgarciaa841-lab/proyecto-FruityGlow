@@ -147,3 +147,39 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2026-06-19 20:22:12
+
+SELECT id, nombre, precio FROM productos ORDER BY id;
+
+
+USE crud_db;
+
+-- ============================================================
+-- Productos de GALERIA (data-id 1 a 12 en galeria.html)
+-- ============================================================
+
+INSERT INTO productos (id, nombre, precio, imagen_url, categoria, descuento) VALUES
+(1,  'vela frutal frambuesa',    54900, '../ASSETS/IMAGENES/galeria/vela frutal 1.jpg',     'frutales',       NULL),
+(2,  'vela frutal fresa',        61500, '../ASSETS/IMAGENES/galeria/vela frutal 2.jpg',     'frutales',       NULL),
+(3,  'vela frutal naranja',      42000, '../ASSETS/IMAGENES/galeria/vela frutal 3.jpg',     'frutales',       NULL),
+(4,  'vela nube cielo',          48000, '../ASSETS/IMAGENES/galeria/vela tematica 1.jpg',   'tematicas',      NULL),
+(5,  'set velas tarot',          55000, '../ASSETS/IMAGENES/galeria/vela tematica 2.webp',  'tematicas',      NULL),
+(6,  'vela acuática nube',       57500, '../ASSETS/IMAGENES/galeria/vela tematica 3.jpg',   'tematicas',      NULL),
+(7,  'vela pide un deseo',       43000, '../ASSETS/IMAGENES/galeria/vela tematica 4.webp',  'personalizadas', NULL),
+(8,  'vela cereal frutal',       29900, '../ASSETS/IMAGENES/galeria/vela tematica 5.jpg',   'personalizadas', NULL),
+(9,  'set velas frutales mini',  41000, '../ASSETS/IMAGENES/galeria/vela frutal 4.jpg',     'frutales',       NULL),
+(10, 'set velas frutales mini',  51000, '../ASSETS/IMAGENES/galeria/vela frutal 5.jpg',     'frutales',       NULL),
+(11, 'set velas frutales mini',  51000, '../ASSETS/IMAGENES/galeria/vela frutal 6.jpg',     'frutales',       NULL),
+(12, 'set velas frutales mini',  51000, '../ASSETS/IMAGENES/galeria/vela tematica 6.jpg',   'frutales',       NULL);
+
+
+-- ============================================================
+-- Productos de OFERTAS (data-id 13 a 18 en ofertas.html)
+-- ============================================================
+
+INSERT INTO productos (id, nombre, precio, imagen_url, categoria, descuento) VALUES
+(13, 'velas aromáticas',             22500, '../ASSETS/IMAGENES/index/velas aromaticas.webp',          'aromaticas', 15.00),
+(14, 'velas frutales pequeñas',      18900, '../ASSETS/IMAGENES/index/velas frutales pequeñas.jpg',    'aromaticas', 21.00),
+(15, 'velas aromáticas en concreto', 27200, '../ASSETS/IMAGENES/index/velas en concreto verde.webp',   'concreto',   10.00),
+(16, 'velas con temática lunar',     25000, '../ASSETS/IMAGENES/index/velas tematica lunar.jpg',       'lunar',      5.00),
+(17, 'vela concreto redonda',        29000, '../ASSETS/IMAGENES/index/velas en concreto 2.jpg',        'concreto',   8.00),
+(18, 'vela luna llena',              23500, '../ASSETS/IMAGENES/index/velas tematica lunar 2.jpg',     'lunar',      15.00);

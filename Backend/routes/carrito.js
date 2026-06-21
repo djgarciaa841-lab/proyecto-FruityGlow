@@ -49,7 +49,9 @@ router.post("/", (req, res) => {
       return res.status(500).json({ error: "Error al verificar el producto" });
     }
     if (productos.length === 0) {
-      return res.status(404).json({ error: "El producto no existe" });
+      return res.status(404).json({
+        error: `El producto no existe (producto_id recibido: ${producto_id})`
+      });
     }
 
     // Vemos si ya está en el carrito de este usuario
@@ -126,3 +128,4 @@ router.delete("/:id", (req, res) => {
 });
 
 module.exports = router;
+
