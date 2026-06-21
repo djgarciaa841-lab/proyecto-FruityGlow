@@ -615,3 +615,152 @@ body {
     text-decoration: none;
     border-radius: 5px;
 }
+
+
+/* ============================================================
+   AGREGADO: Tabs de login (iniciar sesión / crear cuenta)
+   ============================================================ */
+.login-tab-btn {
+  flex: 1;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.login-tab-btn.active {
+  color: #1a1a1a;
+  border-bottom: 2px solid #1a1a1a;
+}
+
+.login-tab-btn:hover {
+  color: #8a5a44;
+}
+
+
+/* ============================================================
+   AGREGADO: Contador del carrito en el icono de la bolsa
+   ============================================================ */
+.carrito-counter {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #8a5a44;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+
+/* ============================================================
+   AGREGADO: Carrito de compras (carrito.html)
+   ============================================================ */
+.carrito-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.carrito-fila {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.carrito-imagen {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.carrito-nombre {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.carrito-cantidad {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #777;
+  margin: 0;
+}
+
+.carrito-precio {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.carrito-eliminar {
+  background: none;
+  border: none;
+  color: #c0392b;
+  font-size: 18px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.carrito-eliminar:hover {
+  opacity: 0.6;
+}
+
+.carrito-resumen {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+  margin-top: 8px;
+}
+
+.carrito-total-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+
+/* ============================================================
+   AGREGADO: Toast de confirmación (agregar al carrito)
+   ============================================================ */
+.toast-carrito {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 2000;
+  text-transform: capitalize;
+}
+
+.toast-carrito.toast-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

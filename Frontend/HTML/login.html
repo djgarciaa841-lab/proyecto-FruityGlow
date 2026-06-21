@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="../CSS/style.css" rel="stylesheet" />
   <script src="../JS/main.js"></script>
-  
+
 </head>
 
 <body class="login-body">
@@ -23,25 +23,77 @@
   <div class="login-wrapper">
     <div class="login-card">
 
-   
+
       <a href="../index.html" class="login-logo kavoon-regular">Fruity Glow.</a>
 
-  
-      <h2 class="login-titulo">Crea una cuenta</h2>
-      <p class="login-subtitulo">Ingresa tu correo electrónico para registrarte en esta app</p>
 
-  
-      <input
-        type="email"
-        class="login-input"
-        id="correo-login"
-        placeholder="correoelectrónico@dominio.com"
-      />
+      <div class="login-tabs d-flex w-100" style="gap: 8px;">
+        <button type="button" class="login-tab-btn active" id="tab-login" onclick="cambiarTab('login')">Iniciar sesión</button>
+        <button type="button" class="login-tab-btn" id="tab-registro" onclick="cambiarTab('registro')">Crear cuenta</button>
+      </div>
 
-  
-      <button class="login-btn-negro" onclick="registrar()">
-        Registrarse con correo electrónico
-      </button>
+
+      <!-- ===== Formulario LOGIN ===== -->
+      <div id="form-login" class="w-100 d-flex flex-column" style="gap: 1rem;">
+
+        <h2 class="login-titulo">Inicia sesión</h2>
+        <p class="login-subtitulo">Ingresa tus datos para acceder a tu cuenta</p>
+
+        <input
+          type="email"
+          class="login-input"
+          id="login-email"
+          placeholder="correoelectrónico@dominio.com"
+        />
+
+        <input
+          type="password"
+          class="login-input"
+          id="login-password"
+          placeholder="Contraseña"
+        />
+
+        <button class="login-btn-negro" onclick="iniciarSesion()">
+          Iniciar sesión
+        </button>
+
+        <p class="login-error" id="login-error"></p>
+      </div>
+
+
+      <!-- ===== Formulario REGISTRO ===== -->
+      <div id="form-registro" class="w-100 d-flex flex-column" style="gap: 1rem; display: none;">
+
+        <h2 class="login-titulo">Crea una cuenta</h2>
+        <p class="login-subtitulo">Completa tus datos para registrarte en esta app</p>
+
+        <input
+          type="text"
+          class="login-input"
+          id="registro-nombre"
+          placeholder="Nombre completo"
+        />
+
+        <input
+          type="email"
+          class="login-input"
+          id="registro-email"
+          placeholder="correoelectrónico@dominio.com"
+        />
+
+        <input
+          type="password"
+          class="login-input"
+          id="registro-password"
+          placeholder="Contraseña (mínimo 6 caracteres)"
+        />
+
+        <button class="login-btn-negro" onclick="registrar()">
+          Registrarse con correo electrónico
+        </button>
+
+        <p class="login-error" id="registro-error"></p>
+      </div>
 
 
       <div class="login-separador">
@@ -54,7 +106,7 @@
         Google
       </button>
 
-  
+
       <p class="login-terminos">
         Al hacer clic en Continuar aceptas nuestros<br/>
         <a href="#" class="login-link">Términos de servicio</a>
@@ -62,31 +114,10 @@
         <a href="#" class="login-link">Política de privacidad</a>
       </p>
 
-  
-      <p class="login-error" id="login-error">Ingresa un correo electrónico válido</p>
-
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    function registrar() {
-      const correo = document.getElementById('correo-login').value.trim();
-      const error = document.getElementById('login-error');
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailRegex.test(correo)) {
-        error.style.display = 'block';
-        document.getElementById('correo-login').classList.add('input-error');
-      } else {
-        error.style.display = 'none';
-        document.getElementById('correo-login').classList.remove('input-error');
-       
-        alert('¡Registro exitoso! Bienvenido a Fruity Glow.');
-      }
-    }
-  </script>
 
 </body>
 </html>
