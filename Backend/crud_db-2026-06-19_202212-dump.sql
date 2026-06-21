@@ -183,3 +183,5 @@ INSERT INTO productos (id, nombre, precio, imagen_url, categoria, descuento) VAL
 (16, 'velas con temática lunar',     25000, '../ASSETS/IMAGENES/index/velas tematica lunar.jpg',       'lunar',      5.00),
 (17, 'vela concreto redonda',        29000, '../ASSETS/IMAGENES/index/velas en concreto 2.jpg',        'concreto',   8.00),
 (18, 'vela luna llena',              23500, '../ASSETS/IMAGENES/index/velas tematica lunar 2.jpg',     'lunar',      15.00);
+
+SELECT id, nombre, precio FROM productos ORDER BY id;
